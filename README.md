@@ -4,8 +4,23 @@ This is a simple documentation for the basic concepts on Elm and it's concepts i
 
 ## Synthax
 
-- Variables are declared directly and can store any ~TYPE~ of value: functions, string, number, boolean, character, Int, Float
+- Variables are declared directly and can store any ~TYPE~ of value (including expressions that evaluate to a value): functions, string, number, boolean, character, Int, Float
 - functions are declared by `variableName ...parameters = functionBody`
+
+### Conditionals
+
+- if, else if, or else are written without enclosed brackets is an expression that evaluates to a value and can be stored in a variable. e.g `crazyStuff = if 4 > 3 then "Wow" else if 3 > 4 then "Sshh" else "Wamm" ` . Where `crazyStuff ` is a variable that represents an expression that evaluates to a String type value.
+
+### Expressions and Priority
+
+it is worthy to note that functional programming is heavily based on mathmatical principles, therefore the rules of BODMAS are applicaple.
+
+- There is an order to the priority of operations executed in an expression/ equation.
+- Examples of operators are `+`, `-`, `*`, `/`, `%`, `>>`, `<<`, `//` without being ordered by priority.
+
+### Elm Types
+
+I realised Elm has Types that have Types **scratches head**
 
 ## Basic structure for a sandboxed (standalone) styled elm application
 
@@ -18,9 +33,11 @@ module Main exposing (..)
     import Html.Styled.Attributes exposing (..)
     import Html.Styled.Events exposing (onClick, onInput)
 
-
+    {-
+        This is a multiline comment
+    -}
     type alias Model =
-        { name : String
+        { name : String --this is an inline comment
         , email : String
         , password : String
         , loggedIn : Bool
