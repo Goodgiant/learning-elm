@@ -20,12 +20,11 @@ it is worthy to note that functional programming is heavily based on mathmatical
 
 ### Elm Types
 
-I realised Elm has Types that have Types **scratches head**
+I realised Elm has Types that have Types _scratches head_
 
 ## Basic structure for a sandboxed (standalone) styled elm application
 
-`
-module Main exposing (..)
+    module Main exposing (..)
 
     import Browser
     import Css exposing (..)
@@ -144,5 +143,3 @@ module Main exposing (..)
             , view = view >> toUnstyled
             , update = update
             }
-
-`
