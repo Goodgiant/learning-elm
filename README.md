@@ -18,9 +18,43 @@ it is worthy to note that functional programming is heavily based on mathmatical
 - There is an order to the priority of operations executed in an expression/ equation.
 - Examples of operators are `+`, `-`, `*`, `/`, `%`, `>>`, `<<`, `//` without being ordered by priority.
 
+### Elm Functions
+
+Functions in Elm are non-ceremonious, in fact they are almost equivalent to declaring any other variable (Almost only because of synthax difference).
+
+- Declaring a function looks like this:
+  foo params =
+  if bar == 1 then
+  "bar"
+  else if baz == 2 then
+  "baz"
+  else "foo bar baz"
+- Functions MUST return a value: No ridiculousness as a Void function, NEVER!
+
+- _Partial Functions_ are functions called without complete arguments. These functions can be saved in a variable and called with the remaining arguments. e.g. `subtract a b = a - b` `subtractFrom3 = subtract 3` `removedFrom3 = subtractFrom3 1`. in this case, `subtractFrom3` is a partial function that can be called with the remaining arguments in subtract.
+- Partial functions can be chained together
+  e.g `subtract 6 (subtractFrom3 (subtract 5 4))` == 4
+- function chaining like the above example can become dirty if you had to chain more partials together. So Elm gracefully supports `|>` and `<|` the forward and backward "pipe operators" that lets us rewrite the previous example more gracefully.
+  e.g `   value = 
+      subtract 5 4 
+          |> subtractFrom3 
+          |> subtract 6
+|`subtract 6 <| subtractFrom3 <| substract 5 4` == 4
+
+#### Elm Let expression
+
+- This expression is used to save and use variables locally in an elm finction. e.g:
+  let
+  valueFive
+  = 5
+  valueFour
+  = 4
+  in
+  subract valueFive valueFour
+
 ### Elm Types
 
-I realised Elm has Types that have Types _scratches head_
+I realised Elm has Types that have Types _*scratches head*_
 
 ## Basic structure for a sandboxed (standalone) styled elm application
 
